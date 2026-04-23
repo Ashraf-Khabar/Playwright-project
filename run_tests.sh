@@ -21,7 +21,7 @@ else
 fi
 
 # Run all tests
-npx playwright test tests/auth.spec.ts --trace on
+ENV=integration npx playwright test tests/ --trace on
 
 # Show to report
-ENV=integration npx playwright show-report
+npx playwright show-report
