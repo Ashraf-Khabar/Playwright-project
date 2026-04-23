@@ -22,6 +22,3 @@ fi
 
 # Run all tests
 ENV=integration npx playwright test tests/ --trace on
-
-# Show to report
-npx playwright show-report

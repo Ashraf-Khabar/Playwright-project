@@ -11,14 +11,13 @@ test.describe('Module de Cards', () => {
         const USER = process.env.ADMIN_USER_NAME;
         const PASS = process.env.ADMIN_PASSWORD;
 
-        console.log(USER)
-
         if (!USER || !PASS) {
             throw new Error('ADMIN_USER_NAME and ADMIN_PASSWORD must be defined');
         }
         await loginPage.goto()
         await loginPage.login(USER, PASS)
-        await products.ListingAllElements()
+        await products.addElementsToCart()
+        await loginPage.Logout()
     });
 
 });
