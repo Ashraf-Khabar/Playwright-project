@@ -3,7 +3,7 @@ import { LoginPage } from '../utils/general/login';
 import dotenv from 'dotenv';
 import { Products } from '../utils/navigation/product';
 
-test.describe('Module de Cards', () => {
+test.describe('Operations On Cards', () => {
 
     test('Navigation on cards', async ({ page }) => {
         const loginPage = new LoginPage(page);
@@ -14,10 +14,12 @@ test.describe('Module de Cards', () => {
         if (!USER || !PASS) {
             throw new Error('ADMIN_USER_NAME and ADMIN_PASSWORD must be defined');
         }
-        await loginPage.goto()
-        await loginPage.login(USER, PASS)
-        await products.addElementsToCart()
-        await loginPage.Logout()
+
+        await loginPage.goto();
+        await loginPage.login(USER, PASS);
+        await products.addElementsToCart();
+        await products.removeElementsFromCart();
+        await loginPage.Logout();
     });
 
 });

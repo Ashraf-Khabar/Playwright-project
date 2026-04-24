@@ -17,7 +17,7 @@ if command -v npx playwright > /dev/null; then
     echo "playwright is installed"
 else
     echo "playwright is not installed"
-    npm init playwright@latest
+    npm install playwright@latest
 fi
 
 # Run all tests

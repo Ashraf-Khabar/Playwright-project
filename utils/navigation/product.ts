@@ -20,11 +20,23 @@ export class Products {
     */
     async addElementsToCart() {
         for (let i = 1; i <= 6; i++) {
-            const base_locator = `xpath=(//div[@class='inventory_item_description'])[${i}]//button`;
-            await this.page.locator(base_locator).click();
+            const addBtn = `xpath=(//div[@class='inventory_item_description'])[${i}]//button`;
+            await this.page.locator(addBtn).click();
             const currentCount = await this.getNumberOfCardElemenmts();
-            await expect(currentCount, `Le panier devrait contenir ${i} éléments`).toBe(i);
-            console.log(`Élément ${i} ajouté. Panier : ${currentCount}`);
+            const removeBtn = `xpath=(//button[normalize-space()='Remove'])[${i}]`;
+            await expect(this.page.locator(removeBtn)).toBeVisible();
+            await expect(currentCount).toBe(i);
+        }
+    }
+
+    async removeElementsFromCart() {
+        for (let i = 6; i > 0; i--) {
+            const removeBtn = this.page.locator("button:has-text('Remove')").last();
+            await expect(removeBtn).toBeVisible();
+            await removeBtn.click();
+            const currentCount = await this.getNumberOfCardElemenmts();
+            await expect(currentCount, `Après suppression, il devrait rester ${i - 1} éléments`).toBe(i - 1);
+            console.log(`Élément retiré. Restant dans le panier : ${currentCount}`);
         }
     }
 
@@ -32,9 +44,13 @@ export class Products {
      * Helper fucntions to be used in my test fucntions
     */
     async getNumberOfCardElemenmts() {
-        const text = await this.cardItem.innerText();
-        console.log('__________')
-        return parseInt(text)
+        const badge = this.page.locator('.shopping_cart_badge');
+        const count = await badge.count();                          
+        if (count === 0) {
+            return 0;
+        }
+        const text = await badge.innerText();
+        return parseInt(text);
     }
 
     async getElementInformations(locator: Locator) {
