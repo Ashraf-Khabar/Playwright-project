@@ -19,4 +19,4 @@ COPY . .
 
 EXPOSE ${playwright_port}
 
-ENTRYPOINT ["npx", "playwright", "test", "tests/", "--trace", "on"]
+ENTRYPOINT ["./run_tests.sh"]
