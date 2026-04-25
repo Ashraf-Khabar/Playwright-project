@@ -9,7 +9,7 @@ dotenv.config({ path: path.resolve(__dirname, 'tests-data', 'integration.env') }
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  reporter: 'html',
+  reporter: [['html']],
   use: {
     baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',

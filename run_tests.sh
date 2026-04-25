@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Define variables
+ENV=integration
+REPORT=html
+
 # Set up the debuging mode
 set -e
 set -x 
@@ -21,4 +25,4 @@ else
 fi
 
 # Run all tests
-ENV=integration npx playwright test tests/ --trace on
+ENV=$ENV npx playwright test tests/ --trace on --reporter=$REPORT
