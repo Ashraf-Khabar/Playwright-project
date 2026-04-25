@@ -5,7 +5,7 @@ import { Products } from '../utils/navigation/product';
 
 test.describe('02 - Operations On Cards', () => {
 
-    test('Navigation on cards', async ({ page }) => {
+    test('Navigation On Cards', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const products = new Products(page);
         const USER = process.env.ADMIN_USER_NAME;

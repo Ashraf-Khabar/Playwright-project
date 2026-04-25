@@ -2,9 +2,9 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../utils/general/login';
 import dotenv from 'dotenv';
 
-test.describe('01 - Connexion and Login modules', () => {
+test.describe('01 - Connexion And Login Modules', () => {
 
-    test('Connexion success', async ({ page }) => {
+    test('Connexion Success', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         const USER = process.env.ADMIN_USER_NAME;
@@ -21,7 +21,7 @@ test.describe('01 - Connexion and Login modules', () => {
         await loginPage.checkLogoutSuccess()
     });
 
-    test('Connexion failed', async ({ page }) => {
+    test('Connexion Failed', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.goto();

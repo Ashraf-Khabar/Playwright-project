@@ -21,5 +21,11 @@ export const PRODUCT_LOCATORS = {
 export const PAYMENT_LOCATORS = {
     backpackAddBtn: "xpath=//button[@id='add-to-cart-sauce-labs-backpack']",
     bikeLightAddBtn: "xpath=//button[@id='add-to-cart-sauce-labs-bike-light']",
-    cartItem: ".cart_item"
+    cartItem: ".cart_item",
+    checkoutBtn: "#checkout",
+    firstNameField: "#first-name",
+    lastNameField: "#last-name",
+    postalCodeField: "#postal-code",
+    errorBox: ".error-message-container.error",
+    continueBtn: "#continue"
 };
