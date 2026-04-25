@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../utils/general/login';
 import dotenv from 'dotenv';
 
-test.describe('Module de Connexion', () => {
+test.describe('01 - Connexion and Login modules', () => {
 
     test('Connexion success', async ({ page }) => {
         const loginPage = new LoginPage(page);

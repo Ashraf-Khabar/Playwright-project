@@ -1,4 +1,7 @@
-FROM mcr.microsoft.com/playwright:v1.59.1-noble
+ARG playwright_version=v1.59.1  
+ARG playwright_port=9323
+
+FROM mcr.microsoft.com/playwright:${playwright_version}-noble
 
 WORKDIR /e2e-tests
 
@@ -14,6 +17,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 9323
+EXPOSE ${playwright_port}
 
 ENTRYPOINT ["npx", "playwright", "test", "tests/", "--trace", "on"]

@@ -3,7 +3,7 @@ import { LoginPage } from '../utils/general/login';
 import dotenv from 'dotenv';
 import { Products } from '../utils/navigation/product';
 
-test.describe('Operations On Cards', () => {
+test.describe('02 - Operations On Cards', () => {
 
     test('Navigation on cards', async ({ page }) => {
         const loginPage = new LoginPage(page);
