@@ -22,7 +22,7 @@ This architecture addresses a common industry pain point: the need for high-leve
 ## end to end tests architecture
 this project use playwright basic project, containing the files to test, but we will add some modification to the project to make it more :
 ```javascript
-│   .dockerignore  // to ignore docker copy command
+├───.dockerignore  // to ignore docker copy command
 │   .gitignore
 │   docker-compose.yml // docker compose (I will explain it later)
 │   dockerfile // Docker image to run auto tests 
