@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../utils/general/login';
 import { Products } from '../utils/navigation/product';
 import { PRODUCT_LOCATORS, PAYMENT_LOCATORS } from '../utils/locators';
+import process from 'process';
 
 test.describe('Extended Functional Tests', () => {
     let loginPage: LoginPage;
