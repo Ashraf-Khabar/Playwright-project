@@ -71,3 +71,9 @@ to run auto tests locally after the configuration of the env file, we just need 
 <img src="./images/auto-tests-logs.png" width="800px" alt="Diagramme d'architecture">
 
 #### Running auto tests inside docker
+To run auto tests insode a docker container, we will use the docker file, first we build the docker image and then we run the container : 
+```bash
+docker build -t e2e-image .
+docker run -it -d --name=e2e-container e2e-image
+```
+<img src="./images/docker-logs.png" width="800px" alt="Diagramme d'architecture">
