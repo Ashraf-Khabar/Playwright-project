@@ -53,7 +53,7 @@ this project use playwright basic project, containing the files to test, but we 
             payement.ts
             product.ts
 ```
-## Running auto tests
+### Running auto tests
 To run the automated tests, you must first configure the environment variables required for the specific target environment. These variables should be defined in a file located at `tests-data/integration.env`.
 A template for this file is provided at `tests-data/integration.example.env`:
 
@@ -63,3 +63,11 @@ ADMIN_PASSWORD=
 BASE_URL=
 INFLUX_TOKEN=
 ```
+#### Running auto tests locally
+to run auto tests locally after the configuration of the env file, we just need to run the script shell :
+```bash
+./run_tests.sh env=integration
+```
+<img src="./images/auto-tests-logs.png" width="800px" alt="Diagramme d'architecture">
+
+#### Running auto tests inside docker
