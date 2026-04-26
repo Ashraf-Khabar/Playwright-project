@@ -17,8 +17,9 @@ The primary goal is to build a robust, four-layer architecture that transitions 
 ### Value Proposition :
 This architecture addresses a common industry pain point: the need for high-level quality insights versus granular debugging. By separating these concerns, you can monitor project progress and quality health at a glance, while still retaining the ability to expose detailed logs within the monitoring tool when a deep dive is required.
 
-<img src="./images/diagram.png" width="600px" alt="Diagramme d'architecture">
-
+<p align="center">
+  <img src="./images/diagram.png" width="600px" alt="Diagramme d'architecture">
+</p>
 ## end to end tests architecture
 this project use playwright basic project, containing the files to test, but we will add some modification to the project to make it more :
 ```javascript
@@ -68,12 +69,41 @@ to run auto tests locally after the configuration of the env file, we just need 
 ```bash
 ./run_tests.sh env=integration
 ```
-<img src="./images/auto-tests-logs.png" width="800px" alt="Diagramme d'architecture">
-
+<p align="center">
+  <img src="./images/auto-tests-logs.png" width="1000" alt="Diagramme d'architecture">
+</p>
 #### Running auto tests inside docker
 To run auto tests insode a docker container, we will use the docker file, first we build the docker image and then we run the container : 
 ```bash
 docker build -t e2e-image .
 docker run -it -d --name=e2e-container e2e-image
 ```
-<img src="./images/docker-logs.png" width="800px" alt="Diagramme d'architecture">
+<p align="center">
+  <img src="./images/docker-logs.png" width="1000" alt="Diagramme d'architecture">
+</p>
+
+## Monitoring tests architecture
+### InfluxDB 
+When we run end to end tests, the metrics are not stored, we lose the results, in order to keep this results and expose them in `grafana` , we need to setup `Influxdb`.
+
+we create a file named `utils/influx-reporter.ts`, this file fetch metrics and store theme in Influxdb, but before running tests, make sure that docker compose are running and we can connect to Influx and Grafana via localhost :
+
+```
+Influx  :   localhost:8086
+Grafana :   localhost:3000
+```
+#### Running docker compose 
+``` sh
+docker compose -d up
+```
+#### InfluXdb configuration API key
+In order to make the communication between end to end tests and **InfluxDB**, the user should configure `API key` and copy the key in `env` file. (*read the official documentation*).
+
+#### Running auto tests :
+``` sh
+./run_tests.sh env=integration
+```
+Then we open `InfluxDB` in localhost and see our last tests executions :
+<p align="center">
+  <img src="./images/influxdb-logs.png" width="1000" alt="Diagramme d'architecture">
+</p>
