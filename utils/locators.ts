@@ -8,14 +8,18 @@ export const LOGIN_LOCATORS = {
 };
 
 export const PRODUCT_LOCATORS = {
-    // Sélecteur dynamique pour les articles de l'inventaire
     inventoryItemButton: (index: number) => `xpath=(//div[@class='inventory_item_description'])[${index}]//button`,
-    // Sélecteur dynamique pour le bouton Remove par index
     removeButtonByIndex: (index: number) => `xpath=(//button[normalize-space()='Remove'])[${index}]`,
     removeButtonGeneral: "button:has-text('Remove')",
     cartBadge: '.shopping_cart_badge',
     cartLink: '.shopping_cart_link',
-    allItemLink: '#inventory_sidebar_link'
+    allItemLink: '#inventory_sidebar_link',
+    // --- New Locators ---
+    sortContainer: '.product_sort_container',
+    inventoryItemName: '.inventory_item_name',
+    inventoryItemPrice: '.inventory_item_price',
+    itemLinkByName: (name: string) => `text=${name}`,
+    backToProductsBtn: '#back-to-products'
 };
 
 export const PAYMENT_LOCATORS = {
@@ -27,5 +31,9 @@ export const PAYMENT_LOCATORS = {
     lastNameField: "#last-name",
     postalCodeField: "#postal-code",
     errorBox: ".error-message-container.error",
-    continueBtn: "#continue"
+    continueBtn: "#continue",
+    // --- New Locators ---
+    finishBtn: "#finish",
+    cancelBtn: "#cancel",
+    completeHeader: ".complete-header"
 };
