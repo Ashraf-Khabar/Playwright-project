@@ -1,4 +1,4 @@
-# Playwright-project
+# Playwright monitoring architecture
 
 The objective of this project is to develop a solid automated testing architecture with scalable and maintainable aspects, leading to a monitoring design. This project contains some automated tests (for testing purposes), but the main objective is the monitoring aspect.
 
