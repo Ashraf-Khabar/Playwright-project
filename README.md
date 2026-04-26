@@ -20,8 +20,10 @@ This architecture addresses a common industry pain point: the need for high-leve
 <p align="center">
   <img src="./images/diagram.png" width="600px" alt="Diagramme d'architecture">
 </p>
-## end to end tests architecture
+
+## End to end tests architecture
 this project use playwright basic project, containing the files to test, but we will add some modification to the project to make it more :
+
 ```javascript
 ├───.dockerignore  // to ignore docker copy command
 │   .gitignore
@@ -72,6 +74,7 @@ to run auto tests locally after the configuration of the env file, we just need 
 <p align="center">
   <img src="./images/auto-tests-logs.png" width="1000" alt="Diagramme d'architecture">
 </p>
+
 #### Running auto tests inside docker
 To run auto tests insode a docker container, we will use the docker file, first we build the docker image and then we run the container : 
 ```bash
@@ -104,6 +107,7 @@ In order to make the communication between end to end tests and **InfluxDB**, th
 ./run_tests.sh env=integration
 ```
 Then we open `InfluxDB` in localhost and see our last tests executions :
+
 <p align="center">
   <img src="./images/influxdb-logs.png" width="1000" alt="Diagramme d'architecture">
 </p>
